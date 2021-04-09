@@ -34,7 +34,7 @@ Container buildContainer(col) {
   return Container(
     height: 10,
     width: 10,
-    margin: EdgeInsets.all(10),
+    margin: EdgeInsets.all(12),
     decoration: BoxDecoration(
       color: col,
       shape: BoxShape.circle,
@@ -213,9 +213,9 @@ class MyHomePageState extends State<MyHomePage> {
                                   !agree ||
                                   !gender.contains(selected)) {
                                 Flushbar(
-                                  duration: Duration(seconds: 2),
+                                  duration: Duration(seconds: 5),
 
-                                  flushbarPosition: FlushbarPosition.BOTTOM,
+                                  flushbarPosition: FlushbarPosition.TOP,
                                   icon: Icon(Icons.error_outline_rounded),
                                   title: "Error",
                                   backgroundColor: Colors.red,
@@ -227,7 +227,10 @@ class MyHomePageState extends State<MyHomePage> {
                               } else {
                                 final alert = AlertDialog(
                                   content: Container(
-                                      child: Column(children: [
+
+                                      child: Column(
+
+                                          children: [
                                         Text('Thank you for registering'),
                                         TextButton(
                                             onPressed: () {
@@ -273,11 +276,11 @@ class MySplashState extends State<MySplash> {
     return MaterialApp(
       home: Scaffold(
           body: SplashScreen(
-        seconds: 10,
+        seconds: 5,
         image: Image.asset('images/macicon.png'),
         photoSize: 200,
         backgroundColor: Colors.red,
-        loaderColor: Colors.yellowAccent,
+        loaderColor: Colors.orangeAccent,
         loadingText: Text(
           'Loading..Please Wait',
           style: Theme.of(context).textTheme.headline5,
@@ -340,17 +343,14 @@ class _MyPageViewState extends State<MyPageView> {
   Align buildGetStarted() {
     return Align(
         alignment: Alignment.bottomCenter,
-        child: Container(
-          width: double.infinity,
-          color: Colors.deepOrangeAccent,
           child: ElevatedButton(
-            style: ElevatedButton.styleFrom(primary: Colors.yellowAccent),
+            style: ElevatedButton.styleFrom(primary: Colors.blue),
               child: Text('Get Started',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 25,
                   ))),
-        ));
+        );
   }
 
   PageView buildPageView() {
